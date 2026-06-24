@@ -1,0 +1,6 @@
+#!/bin/bash
+
+# Extend partition ${partition_number} and grow home LV with the extra space
+growpart /dev/nvme0n1 ${partition_number}
+lvextend -r -L +${extend_size_gb}G /dev/mapper/RootVG-homeVol
+xfs_growfs /home

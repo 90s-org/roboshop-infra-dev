@@ -1,0 +1,14 @@
+#!/bin/bash
+
+dnf install ansible -y
+mkdir -p /var/log/roboshop/
+chown -R ec2-user:ec2user /var/log/roboshop/
+chown -R 755 /var/log/roboshop/
+touch /var/log/roboshop/ansible.log
+
+cd /home/ec2-user
+git clone https://github.com/90s-org/roboshop-ansible-v3.git
+
+cd roboshop-ansible-v3
+git pull
+ansible-playbook -e component=$1 -e environment=$2 roboshop.yaml
