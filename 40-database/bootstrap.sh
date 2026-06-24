@@ -11,4 +11,4 @@ git clone https://github.com/90s-org/roboshop-ansible-v3.git
 
 cd roboshop-ansible-v3
 git pull
-ansible-playbook -e component=$1 -e environment=$2 roboshop.yaml
+ansible-playbook -e component=$1 -e env=$2 roboshop.yaml
