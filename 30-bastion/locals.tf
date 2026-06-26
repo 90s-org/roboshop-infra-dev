@@ -6,6 +6,7 @@ locals {
         Terraform = "true"
     }
     # public subnet in 1a AZ
-    public_subnet_id = split(",", data.aws_ssm_parameter.public_subnet_ids.value)[0]
+    #public_subnet_id = split(",", data.aws_ssm_parameter.public_subnet_ids.value)[0]
     bastion_sg_id = data.aws_ssm_parameter.bastion_sg_id.value
+    default_subnet_1a = data.aws_subnet.default_1a.id
 }

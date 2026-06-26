@@ -25,3 +25,7 @@ variable "sg_names" {
         "vpn"
     ]
 }
+
+variable "is_bastion_in_default"{
+    default = true
+}
