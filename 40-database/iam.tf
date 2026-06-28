@@ -1,5 +1,5 @@
 resource "aws_iam_role" "mysql" {
-  name = local.mysql_role_name #Roboshop-Dev-Mysql
+  name = local.mysql_iam_name
 
   # Terraform's "jsonencode" function converts a
   # Terraform expression result to valid JSON syntax.
@@ -19,14 +19,14 @@ resource "aws_iam_role" "mysql" {
 
   tags = merge(
     {
-        Name = local.mysql_role_name
+        Name = local.mysql_iam_name
     },
     local.common_tags
   )
 }
 
 resource "aws_iam_policy" "mysql" {
-  name        = local.mysql_policy_name
+  name        = local.mysql_iam_name
   description = "A policy for MySQL Ec2 instance"
   policy      = templatefile("mysql-iam-policy.json", {
                 environment = var.environment
